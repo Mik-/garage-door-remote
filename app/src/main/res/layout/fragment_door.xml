@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.neuendorf_online.garagedoorremote.DoorFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Doorname"
+        android:gravity="center_horizontal"
+        android:textSize="28sp"
+        android:textIsSelectable="false"
+        android:id="@+id/door_name"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/doorState_imageView"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_open"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/button_open" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_close"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/button_close" />
+
+</LinearLayout>
