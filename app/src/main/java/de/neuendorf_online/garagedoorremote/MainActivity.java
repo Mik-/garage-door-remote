@@ -32,10 +32,10 @@ public class MainActivity extends ActionBarActivity {
 
         final DynDNS dynDNS = new DynDNS();
 
-        class DynDNSCallback implements DynDNS.Callback {
+        class DynDNSCallback implements DynDNSResolver.Callback {
             public void onUrlResolved() {
                 TextView textView = (TextView) findViewById(R.id.dyndns_result);
-                textView.setText(dynDNS.getIpAddress());
+                textView.setText(dynDNS.getUrl());
             }
         }
 

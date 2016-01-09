@@ -21,22 +21,13 @@ import java.io.InputStreamReader;
 /**
  * Created by michael on 14.11.15.
  */
-public class DynDNS {
-    public interface Callback {
-        void onUrlResolved();
-    }
+public class DynDNS implements DynDNSResolver {
 
-    private String ipAddress;
-    private int port;
+    private String url;
     private Callback resolveCallback;
 
-
-    public int getPort() {
-        return port;
-    }
-
-    public String getIpAddress() {
-        return ipAddress;
+    public String getUrl() {
+        return url;
     }
 
     private class ReadIPAddressTask extends AsyncTask<String, Void, String> {
@@ -75,8 +66,7 @@ public class DynDNS {
         protected void onPostExecute(String s) {
             try {
                 JSONObject jsonObject = new JSONObject(s);
-                ipAddress = jsonObject.getString("ip-address");
-                port = jsonObject.getInt("port");
+                url = jsonObject.getString("url");
 
                 resolveCallback.onUrlResolved();
             } catch (JSONException e) {
@@ -86,6 +76,7 @@ public class DynDNS {
         }
     }
 
+    @Override
     public void resolve(String url, Callback callback) {
         resolveCallback = callback;
 
